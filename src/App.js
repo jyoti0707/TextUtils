@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './Components/Navbar';
+import TextForm from './Components/TextForm';
+import About from './Components/About'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+    <Navbar title="TextUtils" about="About Us" />
+      <Routes>
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/" element={<TextForm heading="Enter your text here : " />} />
+      </Routes>
+        </Router>
+    </>
+    
   );
 }
+
 
 export default App;
